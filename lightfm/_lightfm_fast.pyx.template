@@ -706,7 +706,7 @@ def fit_logistic(CSRMatrix item_features,
     """
     Fit the LightFM model.
     """
-
+    print(1)
     cdef int i, no_examples, user_id, item_id, row
     cdef double prediction, loss
     cdef int y
