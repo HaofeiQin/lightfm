@@ -258,11 +258,11 @@ class Dataset(object):
 
     def _unpack_datum(self, datum):
 
-        if len(datum) == 3:
-            (user_id, item_id, weight) = datum
-        elif len(datum) == 2:
-            (user_id, item_id) = datum
-            weight = 1.0
+        if len(datum) == 4:
+            (user_id, item_id, rating , weight) = datum
+        elif len(datum) == 3:
+            (user_id, item_id, rating) = datum
+            weight = 0.0
         else:
             raise ValueError(
                 "Expecting tuples of (user_id, item_id, weight) "
@@ -284,7 +284,7 @@ class Dataset(object):
                 "you call the fit method.".format(item_id)
             )
 
-        return (user_idx, item_idx, weight)
+        return (user_idx, item_idx, rating, weight)
 
     def interactions_shape(self):
         """
@@ -322,9 +322,9 @@ class Dataset(object):
         weights = _IncrementalCOOMatrix(self.interactions_shape(), np.float32)
 
         for datum in data:
-            user_idx, item_idx, weight = self._unpack_datum(datum)
+            user_idx, item_idx, rating, weight = self._unpack_datum(datum)
 
-            interactions.append(user_idx, item_idx, 1)
+            interactions.append(user_idx, item_idx, rating)
             weights.append(user_idx, item_idx, weight)
 
         return (interactions.tocoo(), weights.tocoo())
