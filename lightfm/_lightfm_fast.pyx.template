@@ -706,7 +706,7 @@ def fit_logistic(CSRMatrix item_features,
     """
     Fit the LightFM model.
     """
-    print("hello cat!")
+    
     cdef int i, no_examples, user_id, item_id, row
     cdef double prediction, loss
     cdef int y
@@ -744,7 +744,7 @@ def fit_logistic(CSRMatrix item_features,
                                    lightfm.item_scale,
                                    it_repr)
 
-            prediction = sigmoid(2.8475e-04*weight + compute_prediction_from_repr(user_repr,
+            prediction = sigmoid(2.9392e-04*weight + compute_prediction_from_repr(user_repr,
                                                               it_repr,
                                                               lightfm.no_components))
 
@@ -772,7 +772,7 @@ def fit_logistic(CSRMatrix item_features,
                 locked_regularize(lightfm,
                                   item_alpha,
                                   user_alpha)
-
+        print(loss)
         free(user_repr)
         free(it_repr)
 
