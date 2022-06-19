@@ -772,7 +772,7 @@ def fit_logistic(CSRMatrix item_features,
                 locked_regularize(lightfm,
                                   item_alpha,
                                   user_alpha)
-        print(loss)
+        
         free(user_repr)
         free(it_repr)
 
