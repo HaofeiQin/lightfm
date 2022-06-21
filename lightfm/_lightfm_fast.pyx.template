@@ -716,7 +716,7 @@ def fit_logistic(CSRMatrix item_features,
     cdef flt *it_repr
 
     no_examples = Y.shape[0]
-
+    print("hi")
     {nogil_block}
 
         user_repr = <flt *>malloc(sizeof(flt) * (lightfm.no_components + 1))
@@ -774,10 +774,10 @@ def fit_logistic(CSRMatrix item_features,
                 locked_regularize(lightfm,
                                   item_alpha,
                                   user_alpha)
-        printf("%f\n", loss)
+        
         free(user_repr)
         free(it_repr)
-
+    print(loss)
     regularize(lightfm,
                item_alpha,
                user_alpha)
@@ -1105,7 +1105,7 @@ def fit_bpr(CSRMatrix item_features,
                                          size=num_threads).astype(np.uint32)
 
     no_examples = Y.shape[0]
-
+  
     {nogil_block}
 
         user_repr = <flt *>malloc(sizeof(flt) * (lightfm.no_components + 1))
