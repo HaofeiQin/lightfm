@@ -757,6 +757,7 @@ def fit_logistic(CSRMatrix item_features,
                 y = 1
 
             loss =  (prediction - y)
+            print(loss)
             update(loss,
                    item_features,
                    user_features,
