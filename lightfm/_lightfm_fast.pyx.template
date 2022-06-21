@@ -470,7 +470,7 @@ cdef inline void update(double loss,
     cdef flt item_component, user_component
 
     avg_learning_rate = 0.0
-
+    print(loss)
     # Get the iteration ranges for features
     # for this training example.
     item_start_index = item_features.get_row_start(item_id)
@@ -757,7 +757,7 @@ def fit_logistic(CSRMatrix item_features,
                 y = 1
 
             loss =  (prediction - y)
-            print(loss)
+            
             update(loss,
                    item_features,
                    user_features,
