@@ -716,7 +716,7 @@ def fit_logistic(CSRMatrix item_features,
     cdef flt *it_repr
 
     no_examples = Y.shape[0]
-    print("hi")
+  
     {nogil_block}
 
         user_repr = <flt *>malloc(sizeof(flt) * (lightfm.no_components + 1))
