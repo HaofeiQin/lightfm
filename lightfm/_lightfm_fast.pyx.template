@@ -758,7 +758,7 @@ def fit_logistic(CSRMatrix item_features,
                 y = 1
 
             loss =  (prediction - y)
-            loss_sum=loss_sum+loss*loss
+           
             update(loss,
                    item_features,
                    user_features,
@@ -777,7 +777,7 @@ def fit_logistic(CSRMatrix item_features,
         
         free(user_repr)
         free(it_repr)
-    loss_sum=np.sqrt(loss_sum/no_examples)
+ 
     print(loss)
     regularize(lightfm,
                item_alpha,
