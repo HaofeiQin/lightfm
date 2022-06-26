@@ -745,9 +745,9 @@ def fit_logistic(CSRMatrix item_features,
                                    lightfm.item_scale,
                                    it_repr)
 
-            prediction = sigmoid(2.9392e-04*weight + compute_prediction_from_repr(user_repr,
+            prediction = sigmoid(9.9812e-05*weight + compute_prediction_from_repr(user_repr,
                                                               it_repr,
-                                                              lightfm.no_components))
+                                                              lightfm.no_components))#2.9392e-04
 
             # Any value less or equal to zero
             # is a negative interaction.
